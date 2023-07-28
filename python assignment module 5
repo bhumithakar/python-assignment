@@ -1,0 +1,170 @@
+# 1.  Why Django should be used for web-development? Explain how you can create a project in Django? 
+
+
+#     Django is a high-level Python web framework that enables rapid development of secure and maintainable websites. 
+#     Built by experienced developers, Django takes care of much of the hassle of web development, so you can focus on writing your 
+#     app without needing to reinvent the wheel.
+    
+    
+#     open new terminal in command prompt (cmd)
+
+#     1---Create a Environment
+#     python -m venv environementname
+#     python -m venv myenv
+
+#     2----Activate your environementname
+#     environementname\Scripts\activate 
+#     myenv\Scripts\activate
+
+
+#     3----installing Djnago
+#     pip install django 
+
+#     4--- craeting project
+#     django-admin startproject projectname .
+#     django-admin startproject ecommerce .
+
+#     5----creating application
+#     django-admin startapp appname
+#     django-admin startapp app_crud
+
+#     6--creating datatbase
+
+#     python manage.py makemigrations
+#     python manage.py migrate
+
+#     7---running your project
+#     python manage.py runserver
+
+#     8--linking app with project
+#     goto settings.py file inside project folder
+
+
+
+#     create admin penal
+
+#     (myenv) C:\SweetShop Project>python manage.py createsuperuser
+#     Username (leave blank to use 'avani'): admin
+#     Email address: 
+#     Password: 
+#     Password (again):
+#     This password is too short. It must contain at least 8 characters.
+#     This password is too common.
+#     This password is entirely numeric.
+#     Bypass password validation and create user anyway? [y/N]: y
+#     Superuser created successfully.
+
+#     python manage.py runserver
+
+
+
+# 2.  How to check installed version of django? 
+
+
+#     #...............................................................................................................................
+#     Example 1:
+#     Open the terminal and write the command in your terminal:
+#     python -m django --version
+
+#     #...............................................................................................................................
+#     Example 2:
+#     Another way to check the version is by using the below command.
+#     django-admin --version
+
+#     #...............................................................................................................................
+#     Example 3:
+#     python manage.py runserver
+#     Check the Django Version using IDLE
+#     Open your Python IDLE. Write the same line in your IDLE given below
+
+#     import django
+#     django.get_version()
+
+#     import django
+#     django.VERSION
+
+# 3.  Explain what does django-admin.py make messages command is used for? 
+
+#     django-admin.py make messages:
+#     makemessages. Runs over the entire source tree of the current directory and pulls out all strings marked for translation. 
+#     It creates (or updates) a message file in the conf/locale (in the Django tree) or locale (for project and application) 
+#     directory.
+
+
+
+# 4.  What is Django URLs?make program to create django urls 
+
+#     Django runs through each URL pattern, in order, and stops at the first one that matches the requested URL, matching 
+#     against path_info . Once one of the URL patterns matches, Django imports and calls the given view, which is a Python 
+#     function (or a class-based view).
+
+
+#     1.  Including other URLConf modules
+#         It is a good practice to have a URLConf module for every app in Django. 
+#         This module needs to be included in the root URLConf module as follows:
+
+
+#         from django.contrib import admin
+#         from django.urls import path, include
+
+#         urlpatterns = [
+#             path('admin/', admin.site.urls),
+#             path('', include('books.urls')),
+#             ]
+
+#     ->  This tells Django to search for URL patterns in the file books/urls.py.
+
+#         URL patterns
+
+#         Here’s a sample code for books/urls.py:
+
+#         from django.urls import path
+#         from . import views
+
+#         urlpatterns = [
+#             path('books/<int:pk>/', views.book_detail),
+#             path('books/<str:genre>/', views.books_by_genre),
+#             path('books/', views.book_index), 
+#         ]
+
+# 5.  What is a QuerySet?Write program to create a new Post object in database: 
+
+#     A QuerySet represents a collection of objects from your database. It can have zero, one or many filters. 
+#     Filters narrow down the query results based on the given parameters. In SQL terms, a QuerySet equates to a SELECT 
+#     statement, and a filter is a limiting clause such as WHERE or LIMIT .
+    
+#     from django.db import models
+ 
+#     # Create your models here.
+#     class User(models.Model):
+#         title = models.CharField(max_length = 200)
+#         description = models.TextField()
+
+# 6.  Mention what command line can be used to load data into Django? 
+
+#     Django-admin.py loaddata
+#     To load data into Django you have to use the command line Django-admin.py loaddata. The command line will searches the data 
+#     and loads the contents of the named fixtures into the database.
+
+# 7.  Explain what does django-admin.py make messages command is used for? 
+
+#     django-admin.py make messages:
+#     makemessages. Runs over the entire source tree of the current directory and pulls out all strings marked for translation. 
+#     It creates (or updates) a message file in the conf/locale (in the Django tree) or locale (for project and application) 
+#     directory.
+
+
+# 8.  Make Django application to demonstrate following things 
+#     o There will 
+#       be 2 modules(Admin,Product manager)
+#     o Admin can add product name 
+#       (ex.Product id and product name) ex. (1, Samsung), (2, Apple)...etc. 
+#       Data should store in 
+
+# 9.  Product_mst table with product id as primary key o Admin can add 
+#     product subcategory details Like (Product price, product image, 
+#     Product model, product Ram) data should store in Product_sub_cat 
+#     table o Admin can get product name as foreign key from 
+#     product_mst table in product_sub_category_details page Admin can 
+#     view, update and delete all registered details of product manager can 
+#     search product on search bar and get all details about product
